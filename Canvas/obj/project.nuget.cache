@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "3WMi1eGLxWoxV5rGTtwkbhquhE+h89llexE8Fh0CVXwSEwAotys8CWYXU+jpPB4qTQXKD2EfbexnigJESo6A1A==",
+  "dgSpecHash": "IWBsi1q0ubD85GhulHid2wb5VlLSr50h7hwZNr3oyFps8ArpaVHznby5CHsiWPAvsR/xwcgsiEuOMBpyEwGkIQ==",
   "success": true,
-  "projectFilePath": "/Users/shelleysbercy/Desktop/C#/Canvas/Canvas.csproj",
+  "projectFilePath": "/Users/shelleysbercy/Desktop/C#/CanvasApp/Canvas/Canvas.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

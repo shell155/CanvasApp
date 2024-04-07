@@ -71,7 +71,8 @@ namespace Canvas // Note: actual namespace depends on the project name.
 
             }
 
-            foreach(Person c in StudentServices.Current.Students){
+            foreach(Person c in StudentServices.Current.Students)
+            {
 
             }
            

@@ -13,16 +13,17 @@ namespace Canvas // Note: actual namespace depends on the project name.
     public class StudentHelper
     {
         private StudentServices studentServ = StudentServices.Current;
-        public  void addStudentToCourse(Course course,Person student){
-            course.Roster.Add(student);         
+        public void addStudentToCourse(Course course, Person student)
+        {
+            course.Roster.Add(student);
         }
 
-        public  void removeStudentFromCourse(Course course, Person student)
+        public void removeStudentFromCourse(Course course, Person student)
         {
             course.Roster.Remove(student);
         }
-         
-        public  void addStudent()
+
+        public void addStudent()
         {
             Console.WriteLine("Enter Student Firstname: ");
             var firstName = Console.ReadLine();
@@ -57,54 +58,78 @@ namespace Canvas // Note: actual namespace depends on the project name.
             }
             else
             {
-                 classEnum = PersonClassification.Freshman;
-            
+                classEnum = PersonClassification.Freshman;
+
             }
-          
+
             Person students;
-                var idz = int.Parse(id ?? "0");
-                var DateOfBirthz = DateOnly.Parse(dob ?? "0");
+            var idz = int.Parse(id ?? "0");
+            var DateOfBirthz = DateOnly.Parse(dob ?? "0");
 
-            students = new Person{FirstName = firstName, LastName = lastName, ID = idz, major = cMajor, classification = classEnum, DateOfBirth = DateOfBirthz};
+            students = new Person { FirstName = firstName, LastName = lastName, ID = idz, major = cMajor, classification = classEnum, DateOfBirth = DateOfBirthz };
             StudentServices.Current.AddStudent(students);
-           // ListStudents();
-           studentServ.AddStudent(students);
+            // ListStudents();
+            studentServ.AddStudent(students);
 
-         }
-        public  void ListStudents()
-            {
-             foreach(Person c in StudentServices.Current.StudentList)
+        }
+        public void ListStudents()
+        {
+            foreach (Person c in StudentServices.Current.StudentList)
             {
                 Console.WriteLine(c);
             }
 
-            }
+        }
 
 
-        public  void addCourse()
-            {
-                Console.WriteLine("Enter the name of the course work:");
-                var courseName = Console.ReadLine();
-
-            }
+        public void addCourse()
+        {
+            Console.WriteLine("Enter the name of the course work:");
+            var courseName = Console.ReadLine();
+        }
 
 
 
         public void UpdateStudent()
         {
-           Console.WriteLine("Select the number of the student you wish to update:");
+            Console.WriteLine("Select the number of the student you wish to update:");
             ListStudents();
             var choice = Console.ReadLine();
             if (int.TryParse(choice, out int intChoice))
             {
-                var studentToUpdate = StudentServices.Current.StudentList.ElementAtOrDefault(intChoice - 1);
+                var studentToUpdate = StudentServices.Current.Get(intChoice);
                 if (studentToUpdate != null)
                 {
                     Console.WriteLine("Enter the new first name:");
                     studentToUpdate.FirstName = Console.ReadLine();
                     Console.WriteLine("Enter the new last name:");
                     studentToUpdate.LastName = Console.ReadLine();
-                    // Similarly, update other properties as needed
+                    Console.WriteLine("Enter Student Major: ");
+                    studentToUpdate.major = Console.ReadLine();
+                    Console.WriteLine("Enter Student Date of Birth: ");
+                    var date = Console.ReadLine();
+                    studentToUpdate.DateOfBirth = DateOnly.Parse(date ?? "0");
+                    Console.WriteLine("Enter Student classification: ");
+                    var classification = Console.ReadLine() ?? string.Empty;
+                    PersonClassification classEnum = PersonClassification.Freshman;
+                    if (classification.Equals("O", StringComparison.InvariantCultureIgnoreCase))
+                    {
+                         classEnum = PersonClassification.Sophmore;
+                    }
+                    else if (classification.Equals("J", StringComparison.InvariantCultureIgnoreCase))
+                    {
+                        classEnum = PersonClassification.Junior;
+                    }
+                    else if (classification.Equals("S", StringComparison.InvariantCultureIgnoreCase))
+                    {
+                        classEnum = PersonClassification.Senior;
+                    }
+                    else
+                    {
+                        classEnum = PersonClassification.Freshman;
+
+                    }
+                    studentToUpdate.classification = classEnum;
                 }
                 else
                 {
@@ -115,14 +140,12 @@ namespace Canvas // Note: actual namespace depends on the project name.
             {
                 Console.WriteLine("Invalid input.");
             }
-
-
         }
 
 
         public void DeleteStudent()
         {
-                
+
             Console.WriteLine("Select the number of the student you wish to delete:");
             ListStudents();
             var choice = Console.ReadLine();
@@ -132,7 +155,7 @@ namespace Canvas // Note: actual namespace depends on the project name.
                 if (studentToDelete != null)
                 {
                     studentServ.Delete(studentToDelete);
-                   
+
                     Console.WriteLine("Student deleted successfully.");
 
                 }
@@ -150,23 +173,22 @@ namespace Canvas // Note: actual namespace depends on the project name.
 
 
 
-        }
+    }
 
 
 
-         }
-
-        
-
-
+}
 
 
 
 
-    
-    
 
 
 
 
-    
+
+
+
+
+
+

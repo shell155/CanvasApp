@@ -5,6 +5,7 @@ namespace Canvas.services {
         private IList<Person> listOfStudents; //making it an interface that I could make it any type of list
         private static StudentServices? instance;
         private string? query;
+        public string? Query {get => query; set => query = value;}
         private static object myLock = new object();
       //Singleton pattern. 
         public static StudentServices Current{ 
@@ -56,14 +57,15 @@ namespace Canvas.services {
         public IEnumerable<Person> Students
         {
             get {
-                    return listOfStudents.Where(c => c.FirstName.ToUpper().Contains(query?? string.Empty) || c.LastName.ToUpper().Contains(query ?? string.Empty));
+                    return listOfStudents.Where(c => c.FirstName.ToUpper().Contains(Query?? string.Empty) || c.LastName.ToUpper().Contains(Query ?? string.Empty));
                 }
         }
 
         public IEnumerable<Person> Search(string query)
         {
-            this.query = query;
-            return Students; 
+            Query = query;
+            return listOfStudents.Where(c => c.FirstName.ToUpper().Contains(Query?? string.Empty) || c.LastName.ToUpper().Contains(Query ?? string.Empty));
+
         }
 
        

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/shelleysbercy/Desktop/C#/Canvas/Canvas.csproj": {}
+    "/Users/shelleysbercy/Desktop/C#/CanvasApp/Canvas/Canvas.csproj": {}
   },
   "projects": {
-    "/Users/shelleysbercy/Desktop/C#/Canvas/Canvas.csproj": {
+    "/Users/shelleysbercy/Desktop/C#/CanvasApp/Canvas/Canvas.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/shelleysbercy/Desktop/C#/Canvas/Canvas.csproj",
+        "projectUniqueName": "/Users/shelleysbercy/Desktop/C#/CanvasApp/Canvas/Canvas.csproj",
         "projectName": "Canvas",
-        "projectPath": "/Users/shelleysbercy/Desktop/C#/Canvas/Canvas.csproj",
+        "projectPath": "/Users/shelleysbercy/Desktop/C#/CanvasApp/Canvas/Canvas.csproj",
         "packagesPath": "/Users/shelleysbercy/.nuget/packages/",
-        "outputPath": "/Users/shelleysbercy/Desktop/C#/Canvas/obj/",
+        "outputPath": "/Users/shelleysbercy/Desktop/C#/CanvasApp/Canvas/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/shelleysbercy/.nuget/NuGet/NuGet.Config"
